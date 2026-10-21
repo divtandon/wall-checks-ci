@@ -22,7 +22,7 @@ def depth_along_normal(points, wall_point, outward_normal):
     """Signed depth of each point: negative = behind the wall surface (recessed), positive = in front."""
     n = np.asarray(outward_normal, float)
     n = n / np.linalg.norm(n)
-    return (wall_point - np.asarray(points, float)) @ n
+    return (np.asarray(points, float) - wall_point) @ n
 
 
 
