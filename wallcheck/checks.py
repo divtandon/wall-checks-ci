@@ -22,7 +22,8 @@ def depth_along_normal(points, wall_point, outward_normal):
     """Signed depth of each point: negative = behind the wall surface (recessed), positive = in front."""
     n = np.asarray(outward_normal, float)
     n = n / np.linalg.norm(n)
-    return (np.asarray(points, float) - wall_point) @ n
+    return (wall_point - np.asarray(points, float)) @ n
+
 
 
 def window_by_depth(depth, recess_min=0.05, tol=0.30):
